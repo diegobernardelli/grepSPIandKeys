@@ -51,7 +51,6 @@ while i < len(file):
 
 print("\nTO BE CUT AND PASTED IN YOUR ESP SA\'S CONFIG FILE IN WIRESHARK 4.0.4+")
 
-i=0 
 for item in rawlist: 
 	# fileds in item to look for: 
 	# 1- enc:|dec:          e.g. dec:
@@ -62,15 +61,8 @@ for item in rawlist:
 	# 6- ah=[a-z0-9]*       e.g. ahsha256
 	# 7- key=[0-9]*         e.g. key=32
 	# 8- [a-f0-9]*          e.g. 98459d0c75354883c94668ebdcd0af710ba23665fbb345c89362438fb76a6751
-	#print(item) 
 	reRes = re.findall('spi\=(\w+)\sesp\=(\S+)\skey\=([0-9]+)\s(\w+)\sah\=(\w+)\skey\=([0-9]*)\s?(\w+)?',item)
-	# no need to increment i as rematching in next loop
-	#print(reRes)
 
 	parsedOutput = rfcReverse(reRes)
 	print(parsedOutput)
-
-
-
-
 	
